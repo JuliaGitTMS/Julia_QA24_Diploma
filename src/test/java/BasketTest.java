@@ -7,8 +7,6 @@ import pageObjects.SearchResultPage;
 import pageObjects.ShoppingCartPage;
 import pageObjects.baseObjects.BaseTest;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class BasketTest extends BaseTest {
     @Test(priority = 1)
@@ -38,7 +36,7 @@ public class BasketTest extends BaseTest {
                 .openBasket();
         get(ShoppingCartPage.class)
                 .waitUntilPageLoaded()
-                .checkProductPrice(product.getIndex(), price)
+                .checkProductPrice(product.getIndex(), price) //не работает
                 .goToWomenCategoryPage();
     }
 

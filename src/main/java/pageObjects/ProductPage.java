@@ -12,6 +12,7 @@ public class ProductPage extends BaseLoadedPage<ProductPage> {
     private final By sizeBar = By.className("_select_1widv_10");
     private final By sizeTableOpen = By.className("_sizetableButton_1widv_225");
     private final By sizeTableClose = By.className("_close_1ezsj_40");
+    private final By sizeText = By.xpath("//div[@class='_select_1widv_10']/div/div");
     private final By sizeList = By.className("_colspanMain_1widv_182");
     private final By addToBasket = By.xpath("//button[@aria-label='Добавить в корзину']");
     private final By returnToProductPage = By.xpath("//div[@class='d-modal__bottom']/button");
@@ -26,15 +27,15 @@ public class ProductPage extends BaseLoadedPage<ProductPage> {
     }
 
     public Double getProductPrice() {
-        return parseDouble(driver.findElement(price).getText().substring(0, driver.findElement(price).getText().indexOf(" ")));
+        return parseDouble(driver.findElement(price).getText().substring(0, driver.findElement(price).getText().indexOf("р")).replaceAll(" ", ""));
     }
 
     public ProductPage chooseProductSize() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(sizeBar));
         click(sizeBar);
-        for (int i = 0; i <= driver.findElements(sizeList).size(); i++) {
-            if (driver.findElements(sizeList).get(i).isEnabled()) {
-                click(driver.findElements(sizeList).get(i));
+        for (int i = 0; i < driver.findElements(sizeList).size(); i++) {
+            click(driver.findElements(sizeList).get(i));
+            if (!driver.findElement(sizeText).getText().equals("Выберите размер")) {
                 break;
             }
         }
@@ -52,11 +53,13 @@ public class ProductPage extends BaseLoadedPage<ProductPage> {
         click(returnToProductPage);
         return me();
     }
+
     public ProductPage openBasket() {
         wait.until(ExpectedConditions.elementToBeClickable(goToBasket));
         click(goToBasket);
         return me();
     }
+
     public ProductPage goToMainPage() {
         wait.until(ExpectedConditions.elementToBeClickable(goToMainPage));
         click(goToMainPage);
