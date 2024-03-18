@@ -5,10 +5,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import pageObjects.baseObjects.BaseLoadedPage;
 
 import static java.lang.Double.parseDouble;
-import static java.lang.Integer.parseInt;
 
 public class ProductPage extends BaseLoadedPage<ProductPage> {
-    private final By price = By.xpath("//span[@aria-label='Итоговая цена']");
+    private final By price = By.xpath("//*[contains(@class, '_title')]//span[contains(@class, '_price')]");
     private final By sizeBar = By.className("_select_1widv_10");
     private final By sizeTableOpen = By.className("_sizetableButton_1widv_225");
     private final By sizeTableClose = By.className("_close_1ezsj_40");
@@ -27,7 +26,7 @@ public class ProductPage extends BaseLoadedPage<ProductPage> {
     }
 
     public Double getProductPrice() {
-        return parseDouble(driver.findElement(price).getText().substring(0, driver.findElement(price).getText().indexOf("р")).replaceAll(" ", ""));
+        return parseDouble(driver.findElements(price).get(driver.findElements(price).size() == 1 ? 0 : 1).getText().split(" ")[0]);
     }
 
     public ProductPage chooseProductSize() {

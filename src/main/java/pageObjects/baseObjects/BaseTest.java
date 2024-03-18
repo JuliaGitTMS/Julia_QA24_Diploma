@@ -18,6 +18,7 @@ import static propertyUtils.PropertyReader.getProperties;
 public class BaseTest {
     @BeforeTest
     public void startUp() {
+        System.out.println(System.getProperties().containsKey("config"));
         createDriver(System.getProperties().containsKey("config")
                 ? valueOf(getProperties().getProperty("browser").toUpperCase())
                 : CHROME);
