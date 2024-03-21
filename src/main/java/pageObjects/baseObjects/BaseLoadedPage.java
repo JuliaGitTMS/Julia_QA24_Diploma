@@ -17,9 +17,10 @@ public class BaseLoadedPage <P> extends BasePage{
         return me();
     }
 
-    public P me() {
+    protected P me() {
         return (P) this;
     }
+
     public P enterSearchItem(String item) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(getConstantItemLocator(SEARCHINPUT)));
         driver.findElement(getConstantItemLocator(SEARCHINPUT)).clear();
@@ -27,7 +28,7 @@ public class BaseLoadedPage <P> extends BasePage{
         click(getConstantItemLocator(SEARCHBUTTON));
         return me();
     }
-    public P enterSearchItem(Product product) {
+    protected P enterSearchItem(Product product) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(getConstantItemLocator(SEARCHINPUT)));
         driver.findElement(getConstantItemLocator(SEARCHINPUT)).clear();
         sendKeys(getConstantItemLocator(SEARCHINPUT), product.getName());
@@ -54,5 +55,13 @@ public class BaseLoadedPage <P> extends BasePage{
         click(getConstantItemLocator(BASKET));
         return me();
     }
+    protected Integer getElementCount (By by){
+        return driver.findElements(by).size();
+    }
+    protected Boolean elementExistStatus (By by){
+        return driver.findElements(by).size()!=0;
+    }
+
+
 
 }

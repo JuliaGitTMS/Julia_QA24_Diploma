@@ -1,3 +1,5 @@
+package regression;
+
 import org.testng.annotations.Test;
 import pageObjects.CookiesRulesPage;
 import pageObjects.HomePage;
@@ -19,6 +21,6 @@ public class PopUpTest extends BaseTest {
         get(HomePage.class)
                 .open()
                 .waitUntilPageLoaded()
-                .cityChoiseCheck(3);
+                .cityChoise(3);
     }
 }

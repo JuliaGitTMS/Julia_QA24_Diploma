@@ -7,10 +7,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
-import java.util.Arrays;
 import pageObjects.ConstantItems;
 
 import static driver.Driver.getDriver;
+
 @Log4j
 public class BasePage {
     protected WebDriver driver;
@@ -19,11 +19,11 @@ public class BasePage {
 
     {
         driver = getDriver();
-        wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         actions = new Actions(driver);
     }
     protected void navigateTo(String url) {
-        log.info("Navigate to :: " + url);
+//        log.info("Navigate to :: " + url);
         driver.get(url);
     }
     protected void waitUntil(Integer seconds) {
@@ -34,22 +34,22 @@ public class BasePage {
         }
     }
     protected void click(By by) {
-        log.info("Click on element::" + driver.findElement(by));
+//        log.info("Click on element::" + driver.findElement(by));
         driver.findElement(by).click();
     }
 
     protected void click(WebElement element) {
-        log.info("Click on element::" + element);
+//        log.info("Click on element::" + element);
         element.click();
     }
     protected void sendKeys(By by, CharSequence... charSequences) {
-        log.info("Enter in element::" + driver.findElement(by) + " next keys: " + Arrays.toString(charSequences));
+//        log.info("Enter in element::" + driver.findElement(by) + " next keys: " + Arrays.toString(charSequences));
         driver.findElement(by).clear();
         driver.findElement(by).sendKeys(charSequences);
     }
 
     protected void sendKeys(WebElement element, CharSequence... charSequences) {
-        log.info("Enter in element::" + element + " next keys: " + Arrays.toString(charSequences));
+//        log.info("Enter in element::" + element + " next keys: " + Arrays.toString(charSequences));
         element.clear();
         element.sendKeys(charSequences);
     }

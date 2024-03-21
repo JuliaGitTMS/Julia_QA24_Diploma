@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="RegressionTests" parallel="tests" thread-count="4">
+    <test name="LamodaPopUpTests">
+        <classes>
+            <class name="regression.PopUpTest"/>
+        </classes>
+    </test>
+    <test name="LamodaSearchTests">
+        <classes>
+            <class name="regression.SearchTest"/>
+        </classes>
+    </test>
+    <test name="LamodaBasketTests">
+        <classes>
+            <class name="regression.BasketTest"/>
+        </classes>
+    </test>
+    <test name="LamodaAPITests">
+        <classes>
+            <class name="regression.APITests"/>
+        </classes>
+    </test>
+</suite>

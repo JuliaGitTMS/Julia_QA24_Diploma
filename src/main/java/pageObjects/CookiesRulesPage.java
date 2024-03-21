@@ -14,16 +14,4 @@ public class CookiesRulesPage extends BaseLoadedPage<CookiesRulesPage> {
         wait.until(ExpectedConditions.textToBePresentInElement(driver.findElement(acceptCookiesRulesButton), "Настройки применены"));
         return me();
     }
-//    public CookiesRulesPage chooseProductCategory(Product product) {
-//        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[contains (text(), '" + product.getCategory() + "')]")));
-//        click(By.xpath("//span[contains (text(), '" + product.getCategory() + "')]"));
-//        return me();
-//    }
-//
-//    public CookiesRulesPage chooseProductCategory(String category) {
-//        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[contains (text(), '" + category + "')]")));
-//        click(By.xpath("//span[contains (text(), '" + category + "')]"));
-//        return me();
-//    }
-//
 }
