@@ -21,7 +21,7 @@ public class MakeAnOrderTest extends BaseTest {
                 .goToItemPage(1);
         get(ProductPage.class)
                 .waitUntilPageLoaded()
-//                .openCloseSizeTable()
+                .openCloseSizeTable()
                 .chooseProductSize()
                 .addProductToCart()
                 .returnToProductPage()
@@ -36,7 +36,7 @@ public class MakeAnOrderTest extends BaseTest {
                 .goToItemPage(3);
         get(ProductPage.class)
                 .waitUntilPageLoaded()
-//                .openCloseSizeTable()
+                .openCloseSizeTable()
                 .chooseProductSize()
                 .addProductToCart()
                 .openBasket();
