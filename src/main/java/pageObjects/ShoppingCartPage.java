@@ -6,7 +6,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import pageObjects.baseObjects.BaseLoadedPage;
+
 import java.util.List;
+
 import static java.lang.Double.parseDouble;
 import static java.lang.Integer.parseInt;
 
@@ -33,8 +35,6 @@ public class ShoppingCartPage extends BaseLoadedPage<ShoppingCartPage> {
             sum += getItemQuantity(i);
         }
         Assert.assertEquals(parseInt(driver.findElement(productAmount).getText().split(" ")[0]), sum);
-        System.out.println(sum);
-        System.out.println(driver.findElement(productAmount).getText());
         return me();
     }
 
@@ -91,8 +91,6 @@ public class ShoppingCartPage extends BaseLoadedPage<ShoppingCartPage> {
             sum = Double.sum(sum, getItemCost(i));
         }
         Assert.assertEquals(parseDouble(driver.findElement(totalPrice).getText().substring(0, driver.findElement(totalPrice).getText().indexOf("р")).replaceAll(" ", "")), sum);
-        System.out.println(sum);
-        System.out.println(driver.findElement(totalPrice).getText());
         return me();
     }
 

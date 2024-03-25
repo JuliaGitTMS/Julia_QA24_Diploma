@@ -62,6 +62,4 @@ public class BaseLoadedPage <P> extends BasePage{
         return driver.findElements(by).size()!=0;
     }
 
-
-
 }

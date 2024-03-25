@@ -88,18 +88,18 @@ public class BasketTest extends BaseTest {
     public Object[][] getData() {
         return new Object[][]{
                 {new Product() {{
-                    setName("юбка");
+                    setName("брюки");
                     setCategory("Женщинам");
                     setIndex(0);
                 }}},
                 {new Product() {{
-                    setName("брюки");
-                    setCategory("Женщинам");
+                    setName("шорты");
+                    setCategory("Девочкам");
                     setIndex(1);
                 }}},
                 {new Product() {{
-                    setName("брюки");
-                    setCategory("Мужчинам");
+                    setName("юбка");
+                    setCategory("Женщинам");
                     setIndex(2);
                 }}},
         };
