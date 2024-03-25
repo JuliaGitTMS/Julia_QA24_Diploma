@@ -28,10 +28,10 @@ public class MakeAnOrderTest extends BaseTest {
                 .goToMainPage();
         get(HomePage.class)
                 .waitUntilPageLoaded()
-                .enterSearchItem("шорты");
+                .enterSearchItem("брюки");
         get(SearchResultPage.class)
                 .waitUntilPageLoaded()
-                .chooseProductCategory("Девочкам")
+                .chooseProductCategory("Мальчикам")
                 .waitUntilPageLoaded()
                 .goToItemPage(3);
         get(ProductPage.class)
